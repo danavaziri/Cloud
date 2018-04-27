@@ -17,19 +17,87 @@
   <div class="bodycenter">
  
     <form action="add_to_db" method="post">
-      <p>Sample Web Application that uses a managed relational database service such as Google CloudSQL or Amazon RDS.</p>
+      <p>Insert/Update a Movie</p>
       <br>
-      Input a greeting: <input type="text" name="message"><br>
-      <input type="submit" value="Add greeting to database">
+      Year: <input type="text" name="year"><br>
+      Title: <input type="text" name="title"><br>
+      Director: <input type="text" name="director"><br>
+      Actor: <input type="text" name="actor"><br>
+      Release Date: <input type="text" name="release_date"><br>
+      Rating: <input type="text" name="rating"><br>
+      <input type="submit" value="Insert/Update Movie">
+    </form>
+    <div>{{ insert_msg }}</div>
+    
+
+    <hr>
+
+
+
+    <form action="delete_movie" method="post">
+      <p>Delete a Movie</p>
+      <br>
+      Title: <input type="text" name="delete_movie_box"><br>
+      <input type="submit" value="Delete Movie">
     </form>
 
-    <p>Greetings stored in database</p>
     <br>
-    {% for entry in entries %}
+    
+    <div>{{ delete_msg }}</div>
+    
+
+
+    <hr>
+
+
+
+    <form action="search_movie" method="post">
+      <p>Search Movie(s) with given actor</p>
+      <br>
+      Actor: <input type="text" name="search_actor_box"><br>
+      <input type="submit" value="Search Movies">
+    </form>
+
+    <br>
+    {% for movie in movies_searched %}
         <div>
-            <div>{{ entry.greeting }}</div>
+            <div>{{ movie }}</div>
         </div>
     {% endfor %}
+    <div>{{ movies_searched_fail }}</div>
+
+
+
+    <hr>
+
+
+
+    <form action="print_movie_highest" method="post">
+      <p>Print highest rated movies</p>
+      <br>
+      <input type="submit" value="Highest Rated Movie">
+    </form>
+    <br>
+    {% for movie in highest_rating_movies %}
+        <div>
+            <div>{{ movie }}</div>
+        </div>
+    {% endfor %}
+
+
+
+    <form action="print_movie_lowest" method="post">
+      <p>Print lowest rated movies</p>
+      <br>
+      <input type="submit" value="Lowest Rated Movie">
+    </form>
+    <br>
+    {% for movie in lowest_rating_movies %}
+        <div>
+            <div>{{ movie }}</div>
+        </div>
+    {% endfor %}
+    
     
     <div class="footer">
     </div>
