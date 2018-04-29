@@ -4,7 +4,6 @@ export PROJECT_ID=greetings6-202603
 gcloud config set project $PROJECT_ID
 export CLOUDSDK_COMPUTE_ZONE=us-central1-b
 
-cd CICD/greetings
 
 gcloud container clusters get-credentials testcluster2
 

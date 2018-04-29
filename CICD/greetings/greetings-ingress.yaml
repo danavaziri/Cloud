@@ -6,5 +6,5 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: greetings-ip
 spec:
   backend:
-    serviceName: greetings-deployment
+    serviceName: greetings6-deployment
     servicePort: 5000
